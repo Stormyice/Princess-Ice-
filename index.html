@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ecaeae;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        #background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('image/ice.jpg'); /* Replace with the actual path to your image */
+            background-size: cover;
+            opacity: 0.3; /* Adjust opacity as needed */
+            z-index: -2;
+        }
+        .container {
+            background-color: #ec99da;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"],
+        select,
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #f09c9c;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #5cb85c;
+            color: rgb(252, 151, 151);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tell Me About Yourself</h2>
+        <form id="infoForm" action="love_page.html" method="get">
+            <input type="text" id="faith" name="firstName" placeholder="First Name" required><br>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required><br>
+            <input type="text" id="nickname" name="nickname" placeholder="Nickname"><br>
+            <label for="gender">Gender:</label><br>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <input type="text" id="favoriteFood" name="favoriteFood" placeholder="Favorite Food"><br>
+            <input type="text" id="favoriteDrink" name="favoriteDrink" placeholder="Favorite Drink"><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('infoForm').addEventListener('submit', function(event) {
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ffe6f7; /* Light pink background */
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            color: #333;
+        }
+        #background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('image/ice.jpg'); /* Replace with the actual path to your image */
+            background-size: cover;
+            opacity: 0.3; /* Adjust opacity as needed */
+            z-index: -2;
+        }
+        #falling-hearts {
+            position: fixed;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2-5em;
+            animation: fall linear infinite;
+            margin: auto;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(120vh);
+            }
+        }
+        #music-player {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+        .message-container {
+            background-color: rgba(241, 171, 241, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 80%;
+        }
+        #princess-name {
+            margin-top: 30px;
+            font-size: 2em;
+            animation: pulse 2s infinite alternate;
+        }
+        .name-letter {
+            display: inline-block;
+            animation: colorChange 1s infinite alternate;
+            
+        }
+        @keyframes colorChange {
+            from { color: blue; }
+            to { color: purple; }
+        }
+    </style>
+</head>
+<body>
+    <div id="background-image"></div>
+    <div id="falling-hearts"></div>
+
+    <div id="music-player">
+        <audio controls autoplay loop>
+            <source src="image/christina_perri_a_thousand_years_official_music_video_mp3_73684.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <div class="message-container">
+        <p>Princess , you have been such a positive impact on my life. You are truly my daymaker; just thinking about you can turn my whole day around. Your smile is infectious and it never fails to bring joy to my heart. I am incredibly grateful to have you in my life. I love you more than words can say, you are one I turn to in any situation, knowing you'll always be there.</p>
+        <p>You make me happy in ways i can't explain, a love that feels like sunshine after endless rain it's not just in the laughter or words you say but in the way you bring light into my life. In you my heart beats without pause and I'll love until the stars fade from the sky </p>
+        <p>without you even the warmest sun fels cold. The stars forget to shine and the night loses its glow. In your hugs i feel at home and life becomes happier.</p>
+        <p>#My Smiling Machine</p>
+    </div>
+
+    <div id="princess-name">
+        <span class="name-letter" style="animation-delay: 0s;">P</span>
+        <span class="name-letter" style="animation-delay: 0.2s;">R</span>
+        <span class="name-letter" style="animation-delay: 0.4s;">I</span>
+        <span class="name-letter" style="animation-delay: 0.6s;">N</span>
+        <span class="name-letter" style="animation-delay: 0.8s;">C</span>
+        <span class="name-letter" style="animation-delay: 1s;">E</span>
+        <span class="name-letter" style="animation-delay: 1.2s;">S</span>
+        <span class="name-letter" style="animation-delay: 1.2s;">S</span>
+        <span style="margin-left: 20px;"></span>
+        <span class="name-letter" style="animation-delay: 1.6s;">I</span>
+        <span class="name-letter" style="animation-delay: 1.8s;">C</span>
+        <span class="name-letter" style="animation-delay: 2s;">E</span>
+    </div>
+
+    <script>
+        const fallingHeartsContainer = document.getElementById('falling-hearts');
+        const numberOfHearts = 10; // Adjust the number of falling hearts
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+            heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            heart.style.opacity = Math.random();
+            fallingHeartsContainer.appendChild(heart);
+
+            heart.addEventListener('animationiteration', () => {
+                heart.remove();
+                createHeart();
+            });
+        }
+
+        for (let i = 0; i < numberOfHearts; i++) {
+            createHeart();
+        }
+    </script>
+</body>
+</html>
